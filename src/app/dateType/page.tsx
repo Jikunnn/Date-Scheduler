@@ -1,14 +1,24 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React, { Suspense, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
+// Main wrapper component
 const DateType = () => {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+      <DateTypeContent />
+    </Suspense>
+  );
+};
+
+// Content component that uses useSearchParams
+function DateTypeContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [name, setName] = useState('');
   const [selectedDateType, setSelectedDateType] = useState('');
   
-  useEffect(() => {
+  React.useEffect(() => {
     // Get the name from URL parameter
     const nameParam = searchParams.get('name');
     if (nameParam) {
@@ -72,6 +82,6 @@ const DateType = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DateType;
