@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className = "flex min-h-screen items-center justify-center">
       <div className = 'flex flex-col items-center'>
-      <div className= 'text-center text-7xl font-gourmet-eatery fade-in' >Welcome!</div>
+      <div className= 'text-center text-5xl font-gourmet-eatery fade-in' >Welcome!</div>
       <div className ='text-center text-xl font-gourmet-eatery fade-in'>Click the button below to continue 🫶</div>
       <div>
       <Link href = '/dateName'>

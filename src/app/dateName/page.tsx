@@ -17,7 +17,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
   return (
     <div className="flex min-h-screen items-center justify-center fade-in">
       <div className='flex flex-col items-center'>
-        <div className="text-center text-3xl font-gourmet-eatery mb-5">
+        <div className="text-center text-2xl font-gourmet-eatery mb-5">
           First of all, I&apos;d like to know your name
         </div>
         <div className="my-5">
