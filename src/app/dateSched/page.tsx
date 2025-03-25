@@ -76,8 +76,8 @@ function DateSchedulerContent() {
     value={selectedDate}
     onChange={(e) => setSelectedDate(e.target.value)}
     min={new Date().toISOString().split('T')[0]} // Prevent past dates
-    className="w-full px-3 py-3 sm:px-5 sm:py-4 rounded-lg bg-[#faf3eb] border-2 border-[#d69264] 
-              text-[#c3592b] text-base sm:text-lg font-medium
+    className="w-full px-5 py-4 rounded-lg bg-[#faf3eb] border-2 border-[#d69264] 
+              text-[#c3592b] font-medium text-lg
               focus:outline-none focus:ring-2 focus:ring-[#c3592b] focus:border-transparent
               transition-all duration-300 cursor-pointer shadow-inner"
     required
