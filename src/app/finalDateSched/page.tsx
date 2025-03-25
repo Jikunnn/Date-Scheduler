@@ -1,9 +1,19 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React, { Suspense, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
+// Main wrapper component
 const ConfirmationPage = () => {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+      <ConfirmationPageContent />
+    </Suspense>
+  );
+};
+
+// Content component that uses useSearchParams
+function ConfirmationPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [name, setName] = useState('');
@@ -11,7 +21,7 @@ const ConfirmationPage = () => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   
-  useEffect(() => {
+  React.useEffect(() => {
     const nameParam = searchParams.get('name');
     const dateTypeParam = searchParams.get('dateType');
     const dateParam = searchParams.get('date');
@@ -100,6 +110,6 @@ const ConfirmationPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ConfirmationPage;
