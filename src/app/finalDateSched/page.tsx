@@ -1,7 +1,6 @@
 'use client';
 import React, { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Image from 'next/image';
 
 // Main wrapper component
 const ConfirmationPage = () => {
@@ -84,14 +83,12 @@ function ConfirmationPageContent() {
             </div>
             
             <div className="my-8">
-              <Image 
+              <img 
                 src="/celebration.gif" 
                 alt="Celebration"
                 width={200} 
                 height={200}
                 className="mx-auto"
-                priority 
-                unoptimized={true}
               />
             </div>
           </div>
