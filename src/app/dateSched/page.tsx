@@ -1,8 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 
-const DateScheduler = () => {
+// Component that uses useSearchParams
+function DateSchedulerContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [name, setName] = useState('');
@@ -121,6 +123,17 @@ const DateScheduler = () => {
       </div>
     </div>
   );
-};
+}
 
-export default DateScheduler;
+// Main page component with Suspense boundary
+export default function DateScheduler() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-xl">Loading...</div>
+      </div>
+    }>
+      <DateSchedulerContent />
+    </Suspense>
+  );
+}
