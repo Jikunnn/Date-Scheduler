@@ -1,8 +1,18 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React, { Suspense, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
+// Main wrapper component
 const DateScheduler = () => {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+      <DateSchedulerContent />
+    </Suspense>
+  );
+};
+
+// Content component that uses useSearchParams
+function DateSchedulerContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [name, setName] = useState('');
@@ -10,7 +20,7 @@ const DateScheduler = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   
-  useEffect(() => {
+  React.useEffect(() => {
     // Get parameters from URL
     const nameParam = searchParams.get('name');
     const dateTypeParam = searchParams.get('dateType');
@@ -121,6 +131,6 @@ const DateScheduler = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DateScheduler;
