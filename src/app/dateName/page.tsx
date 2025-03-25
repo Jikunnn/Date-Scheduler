@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 
 export default function FormPage() {
@@ -20,12 +21,13 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
           First of all, I&apos;d like to know your name
         </div>
         <div className="my-5">
-          <img
+          <Image 
             src="/hehegif.gif" 
             alt="hehe"
             width={300} 
             height={300}
-            className="mx-auto"
+            priority 
+            unoptimized={true}
           />
         </div>
         <form className="flex flex-col items-center" onSubmit={handleSubmit}>
