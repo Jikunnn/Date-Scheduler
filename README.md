@@ -1,4 +1,4 @@
-#Date Scheduler Web Application Using NextJS
+# Date Scheduler Web Application Using NextJS
 
 This application serves to be a date scheduler when you want to ask someone out on a date. It asks for the name, email, type of date they want, and date and time of the said date.
 
